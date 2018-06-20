@@ -1,0 +1,8 @@
+<h1>게시판</h1>
+<h1>글을 수정해주세요</h1>
+<form action="/posts/<%=@post.id%>/update">
+  이름 : <input type="text" name="username" value="<%=@post.username%>" /><br /><br />
+  제목 : <input type="text" name="title" value="<%=@post.title%>" /><br /><br />
+  내용 : <textarea name="content"><%=@post.content%></textarea><br /><br />
+  <input type="submit" name="수정"/>
+</form>
