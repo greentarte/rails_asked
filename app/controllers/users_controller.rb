@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def posts
+    @user=User.find(params[:id])
+    @posts=@user.posts
+  end
+
   def login
 
   end
@@ -22,6 +27,7 @@ class UsersController < ApplicationController
     else
     flash[:alert] = "가입되지 않은 이메일입니다."
     redirect_to '/signup'
+    end
   end
 
   def logout
@@ -73,6 +79,5 @@ class UsersController < ApplicationController
     # #1-1-1. 비밀번호가 같으면 가입
     # #1-1-2. 비밀번호가 틀리면, falsh 메세지로 비밀번호가 일치하지 않습니다. redirect_to :back
     # #1-2. 틀리면, flash 메세지로 가입된 이메일입니다. redirect_to :back
-end
-end
+  end
 end
