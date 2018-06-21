@@ -1,12 +1,32 @@
-<a href="/posts/new">게시글 작성하기</a>
-<% @posts.each do |post| %>
-<p><%= post.id %></p>
-<p><%= post.username %></p>
-<p><%= post.title %></p>
-<p><%= post.content %></p>
-<p><%= post.created_at%></p>
-<a href="/posts/<%=post.id%>">글 보기</a>
-<a href="/posts/<%=post.id%>/destroy">글 삭제</a>
-<a href="/posts/<%=post.id%>/edit">글 수정</a>
-<hr />
-<% end %>
+
+<p>
+  <a href="/posts/new" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">게시글 작성하기</a>
+</p>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Username</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Created_at</th>
+      <th scope="col">View</th>
+      <th scope="col">Modify</th>
+      <th scope="col">delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+    <tr>
+      <th scope="row"><%= post.id %></th>
+      <td><%= post.username %></td>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= post.created_at%></td>
+      <td><a href="/posts/<%=post.id%>" >글 보기</a></td>
+      <td><a href="/posts/<%=post.id%>/edit">글 수정</a></td>
+      <td><a href="/posts/<%=post.id%>" data-method="delete" data-confirm="정말 지우시겠습니까?">글 삭제</a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

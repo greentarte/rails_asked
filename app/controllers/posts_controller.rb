@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def create
     post=Post.create(username: params[:username], title: params[:title], content: params[:content])
+    flash[:notice]="글을 작성했습니다."
     redirect_to '/'
   end
 
@@ -25,11 +26,13 @@ class PostsController < ApplicationController
   def update
     post=Post.find(params[:id])
     post.update(username: params[:username], title: params[:title], content: params[:content])
+    flash[:notice]="글을 수정했습니다."
     redirect_to '/'
   end
 
   def destroy
     Post.find(params[:id]).delete
+    flash[:alert]="글을 삭제했습니다."
     redirect_to '/'
   end
 end
