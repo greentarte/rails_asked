@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   post 'users' => 'users#create'
 
-  get '/login' => 'users#login'
-  post 'loginprocess' => 'users#loginprocess'
-  get 'logout' => 'users#logout'
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
   get 'users/:id/posts' => 'users#posts'
 
   root 'posts#index'
